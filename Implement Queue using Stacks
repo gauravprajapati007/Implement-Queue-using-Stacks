@@ -1,0 +1,53 @@
+class MyQueue {
+public:
+    stack<int> stck1,stck2;
+    int count=0,a,b,c;
+    bool mpty() 
+    {
+        if(stck1.top()==-1 && stck2.top()==-1){
+            return false;
+        }
+    return true;
+    }
+        
+    void push(int x) {
+        stck1.push(x);
+        count++;
+    }
+    int pop() {
+        if(mpty())
+            return false ;
+        else  
+        {  
+            for(int i=0;i<count;i++)  
+            {  
+                c = stck1.top();
+                stck2.push(c);  
+            }  
+            stck2.top();  
+            count--;  
+            for(int i=0;i<count;i++)  
+            {  
+                int a = stck2.top();  
+                stck1.push(a);
+            }  
+        }
+    }
+    int peek() 
+    {
+    for(int i=0;i<count;i++)  
+    {
+        int b = stck1.top();  
+        stck2.push(b);
+    }
+    return b;     
+    }
+};
+
+
+MyQueue myQueue = new MyQueue();
+myQueue.push(1);
+myQueue.push(2);
+myQueue.peek();
+myQueue.pop();
+myQueue.mpty();
