@@ -53,6 +53,6 @@ myQueue.push(1);
 myQueue.push(2);
 cout<<myQueue.peek()<<endl;
 myQueue.pop();
-myQueue.mpty();
+myQueue.empty();
 return 0;
 }
