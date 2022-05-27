@@ -1,11 +1,13 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <iostream>  
+#include <stack>  
+
+using namespace std; 
 
 class MyQueue {
 public:
     stack<int> stck1,stck2;
     int count=0,a,b,c;
-    bool mpty() 
+    bool empty() 
     {
         return(stck1.top()==-1 && stck2.top()==-1);
         }
@@ -15,14 +17,14 @@ public:
         count++;
     }
     int pop() {
-        if(!mpty())
+        if(!empty())
         {
             for(int i=0;i<count;i++)  
             {  
                 c = stck1.top();
                 stck2.push(c);  
             }  
-            return stck2.top();  
+    return(stck2.top());  
             count--;  
             for(int i=0;i<count;i++)  
             {  
@@ -31,6 +33,8 @@ public:
             }  
         }
     }
+
+    
     int peek() 
     {
     for(int i=0;i<count;i++)  
@@ -38,7 +42,7 @@ public:
         int b = stck1.top();  
         stck2.push(b);
     }
-    return stck2.top();     
+    return (stck2.top());     
     }
 };
 
