@@ -1,30 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class MyQueue {
 public:
     stack<int> stck1,stck2;
     int count=0,a,b,c;
     bool mpty() 
     {
-        if(stck1.top()==-1 && stck2.top()==-1){
-            return false;
+        return(stck1.top()==-1 && stck2.top()==-1);
         }
-    return true;
-    }
         
     void push(int x) {
         stck1.push(x);
         count++;
     }
     int pop() {
-        if(mpty())
-            return false ;
-        else  
-        {  
+        if(!mpty())
+        {
             for(int i=0;i<count;i++)  
             {  
                 c = stck1.top();
                 stck2.push(c);  
             }  
-            stck2.top();  
+            return stck2.top();  
             count--;  
             for(int i=0;i<count;i++)  
             {  
@@ -40,14 +38,17 @@ public:
         int b = stck1.top();  
         stck2.push(b);
     }
-    return b;     
+    return stck2.top();     
     }
 };
 
-
-MyQueue myQueue = new MyQueue();
+int main()
+{
+MyQueue myQueue = MyQueue();
 myQueue.push(1);
 myQueue.push(2);
-myQueue.peek();
+cout<<myQueue.peek()<<endl;
 myQueue.pop();
 myQueue.mpty();
+return 0;
+}
